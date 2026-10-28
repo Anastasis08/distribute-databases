@@ -1,0 +1,1 @@
+"""Consumer service: Kafka -> MongoDB."""

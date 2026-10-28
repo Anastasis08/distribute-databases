@@ -1,0 +1,1 @@
+"""Producer service: PostgreSQL -> Kafka."""

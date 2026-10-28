@@ -1,0 +1,25 @@
+[project]
+name = "product-producer"
+version = "1.0.0"
+description = "Producer service: detects new/changed products in PostgreSQL and publishes them to Kafka."
+requires-python = ">=3.12"
+dependencies = [
+    "product-contracts",
+    "confluent-kafka>=2.11,<3",
+    "sqlalchemy>=2.0.36,<3",
+    "psycopg[binary]>=3.2,<4",
+    "pydantic-settings>=2.6,<3",
+]
+
+[project.scripts]
+product-producer = "producer_service.__main__:main"
+
+[tool.uv.sources]
+product-contracts = { workspace = true }
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/producer_service"]
